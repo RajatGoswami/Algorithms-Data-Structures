@@ -4,7 +4,7 @@ import math
 # Binary Search
 
 # Time complexity: O(log(n))
-# Space complexity: O(n)
+# Space complexity: O(1)
 
 # Precondition: Binary search requires the input array to be sorted.
 
