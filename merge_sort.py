@@ -60,7 +60,7 @@ def main():
     array = [int(elem) for elem in array]
 
     # Ensure that the input array is not empty
-    if size > 0:
+    if len(array) > 0:
         print("Please provide a non-empty input array")
         return
     
