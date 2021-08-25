@@ -23,6 +23,7 @@ def binary_search(array, l, r, x):
 
     return -1
 
+
 def main():
     # Parse input array
     array = sys.argv[1].split(',')
@@ -50,6 +51,7 @@ def main():
         print("Target element {} was found at index: {}".format(x, index))
     else:
         print("The target element {} does not exist in input array {}".format(x, array))
+
 
 if __name__ == "__main__":
     main()
