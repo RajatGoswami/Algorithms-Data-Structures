@@ -35,7 +35,7 @@ def main():
     size = len(array)
 
     # Ensure that the input array is not empty
-    if size > 0:
+    if size < 0:
         print("Please provide a non-empty input array")
         return
 
