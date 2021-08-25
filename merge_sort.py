@@ -1,7 +1,7 @@
 import sys
 import math
 
-# Mergesort
+# Merge Sort
 # A divide-and-conquer sorting algorithm
 
 # Time complexity: O(n * log(n))
@@ -58,6 +58,11 @@ def main():
     # Array to be sorted
     array = sys.argv[1].split(',')
     array = [int(elem) for elem in array]
+
+    # Ensure that the input array is not empty
+    if size > 0:
+        print("Please provide a non-empty input array")
+        return
     
     # Sort the input array from smallest to largest
     sorted_array = merge_sort(array)
