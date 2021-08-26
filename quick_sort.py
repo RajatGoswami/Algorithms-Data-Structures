@@ -11,8 +11,6 @@ def swap(array, i, j):
     array[i] = array[j]
     array[j] = tmp
 
-    return array
-
 def partition(array, l, h):
     # Using simplified approach to selecting a pivot:
     # Pick the last element of the array.
@@ -26,7 +24,7 @@ def partition(array, l, h):
             i = i + 1
 
             # Swap
-            array = swap(array, i, j)
+            swap(array, i, j)
 
         j = j + 1
     
@@ -34,19 +32,19 @@ def partition(array, l, h):
     # i.e. all elements < pivot come before
     # and all elements > pivot appear after
     i = i + 1
-    array = swap(array, i, h)
+    swap(array, i, h)
 
-    return i, array
+    return i
 
 
 def quick_sort(array, l, h):
     if l < h:
         # Parition the array using a given pivot
-        pivotIndex, array = partition(array, l, h)
+        pivotIndex = partition(array, l, h)
 
         # Recursively sort partitioned sub-arrays
-        array = quick_sort(array, l, pivotIndex - 1)
-        array = quick_sort(array, pivotIndex + 1, h)
+        quick_sort(array, l, pivotIndex - 1)
+        quick_sort(array, pivotIndex + 1, h)
 
     return array
 
@@ -63,8 +61,8 @@ def main():
         return
     
     # Sort the input array from smallest to largest
-    sorted_array = quick_sort(array, 0, size - 1)
-    print(sorted_array)
+    quick_sort(array, 0, size - 1)
+    print(array)
 
 if __name__ == "__main__":
     main()
