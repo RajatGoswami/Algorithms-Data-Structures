@@ -11,6 +11,7 @@ def swap(array, i, j):
     array[i] = array[j]
     array[j] = tmp
 
+
 def partition(array, l, h):
     # Using simplified approach to selecting a pivot:
     # Pick the last element of the array.
@@ -46,7 +47,6 @@ def quick_sort(array, l, h):
         quick_sort(array, l, pivotIndex - 1)
         quick_sort(array, pivotIndex + 1, h)
 
-    return array
 
 def main():
     # Array to be sorted

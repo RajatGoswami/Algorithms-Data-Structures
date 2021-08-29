@@ -42,8 +42,11 @@ def main():
     # Ensure that the input array is sorted (least to greatest)
     for i in range(size - 2):
         if array[i] > array[i + 1]:
-            print("Please ensure the input array is sorted (least to greatest)")
-            return
+            print("Input array is not sorted. Performing sort before search.")
+            from quick_sort import quick_sort
+            quick_sort(array, 0, size - 1)
+
+            print("Sorted array to be searched: {}".format(array))
 
     index = binary_search(array, 0, size - 1, x)
 
