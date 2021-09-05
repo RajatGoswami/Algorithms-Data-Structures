@@ -3,7 +3,7 @@ import sys
 # Heap Sort
 
 # Time complexity: O(n * log(n))
-# Space complexity: O(1) (in-place)
+# Space complexity: O(1) (implemented in-place)
 
 # A heap is a complete binary tree where the parent node is
 # always greater-than its child nodes in the case of a max-heap
@@ -18,6 +18,7 @@ def swap(array, i, j):
     tmp = array[i]
     array[i] = array[j]
     array[j] = tmp
+
 
 def heapify(array, size, index):
     while index < size:
@@ -42,14 +43,22 @@ def heapify(array, size, index):
         else:
             break
 
+
 def heap_sort(array):
     size = len(array)
 
     # Heapify the input array (bottom-up)
-    for i in range(size-1, -1, -1):
+    for i in range(size - 1, -1, -1):
         heapify(array, size,  i)
 
-    return array
+    # Replace the root node with the lowest, right-most child
+    # Decrease the size of the unsorted array
+    while size > 0:
+        swap(array, 0, size - 1)
+        size = size - 1
+
+        heapify(array, size, 0)
+
 
 def main():
     # Array to be sorted
@@ -62,8 +71,8 @@ def main():
         return
     
     # Sort the input array from smallest to largest
-    sorted_array = heap_sort(array)
-    print(sorted_array)
+    heap_sort(array)
+    print(array)
 
 
 if __name__ == "__main__":
