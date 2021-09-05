@@ -19,10 +19,36 @@ def swap(array, i, j):
     array[i] = array[j]
     array[j] = tmp
 
-def heapify(array):
-    pass
+def heapify(array, size, index):
+    while index < size:
+        left_child = (2 * index) + 1
+        right_child = (2 * index) + 2
+
+        if left_child >= size:
+            break
+        
+        # Determine which child node is larger
+        max_child_index = left_child
+        if right_child < size and array[right_child] > array[left_child]:
+            max_child_index = right_child
+
+        # If the parent node is smaller than its children, swap
+        if array[index] < array[max_child_index]:
+            swap(array, index, max_child_index)
+
+            # Bubble the node down the tree until it
+            # matches the criteria of a max heap
+            index = max_child_index
+        else:
+            break
 
 def heap_sort(array):
+    size = len(array)
+
+    # Heapify the input array (bottom-up)
+    for i in range(size-1, -1, -1):
+        heapify(array, size,  i)
+
     return array
 
 def main():
